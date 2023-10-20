@@ -3,40 +3,52 @@ declare(strict_types=1);
 
 namespace Tymeshift\PhpTest\Domains\Task;
 
+use Tymeshift\PhpTest\Exceptions\InvalidCollectionDataProvidedException;
 use Tymeshift\PhpTest\Interfaces\EntityCollection;
 use Tymeshift\PhpTest\Interfaces\EntityInterface;
 use Tymeshift\PhpTest\Interfaces\RepositoryInterface;
+use Exception;
+use Tymeshift\PhpTest\Traits\ArrayTrait;
 
 class TaskRepository implements RepositoryInterface
 {
-    /**
-     * @var TaskFactory
-     */
-    private $factory;
-
-    /**
-     * @var TaskStorage
-     */
-    private $storage;
-
-    public function __construct(TaskStorage $storage, TaskFactory $factory)
-    {
-        $this->factory = $factory;
-        $this->storage = $storage;
+    use ArrayTrait;
+    public function __construct(
+        private TaskStorage $storage,
+        private TaskFactory $factory
+    ) {
     }
 
     public function getById(int $id): EntityInterface
     {
-        // TODO: Implement getById() method.
+        $array = $this->search($this->storage->getById($id), ['id' => $id]);
+
+        return $this->factory->createEntity(
+            array_shift($array)
+        );
     }
 
+    /**
+     * @throws Exception
+     */
     public function getByScheduleId(int $scheduleId):TaskCollection
     {
+       $task = $this->storage->getByScheduleId($scheduleId);
 
+       if (empty($task)) {
+           throw new Exception('Schedule is not set');
+       }
+
+        return $this->factory->createCollection($task);
     }
 
+    /**
+     * @throws InvalidCollectionDataProvidedException
+     */
     public function getByIds(array $ids): TaskCollection
     {
-        // TODO: Implement getByIds() method.
+        return $this->factory->createCollection(
+            $this->storage->getByIds($ids)
+        );
     }
 }

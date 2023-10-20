@@ -43,11 +43,12 @@ class ScheduleEntity implements EntityInterface
 
     /**
      * @param int $id
-     * @return ScheduleEntity
+     * @return self
      */
-    public function setId(int $id): ScheduleEntity
+    public function setId(int $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -61,11 +62,12 @@ class ScheduleEntity implements EntityInterface
 
     /**
      * @param string $name
-     * @return ScheduleEntity
+     * @return self
      */
-    public function setName(string $name): ScheduleEntity
+    public function setName(string $name): self
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -79,11 +81,12 @@ class ScheduleEntity implements EntityInterface
 
     /**
      * @param DateTime $startTime
-     * @return ScheduleEntity
+     * @return self
      */
-    public function setStartTime(DateTime $startTime): ScheduleEntity
+    public function setStartTime(DateTime $startTime): self
     {
         $this->startTime = $startTime;
+
         return $this;
     }
 
@@ -97,11 +100,12 @@ class ScheduleEntity implements EntityInterface
 
     /**
      * @param DateTime $endTime
-     * @return ScheduleEntity
+     * @return self
      */
-    public function setEndTime(DateTime $endTime): ScheduleEntity
+    public function setEndTime(DateTime $endTime): self
     {
         $this->endTime = $endTime;
+
         return $this;
     }
 }
