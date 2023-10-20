@@ -7,7 +7,7 @@ use Tymeshift\PhpTest\Components\DatabaseInterface;
 use Tymeshift\PhpTest\Interfaces\EntityInterface;
 use Tymeshift\PhpTest\Interfaces\StorageInterface;
 
-class ScheduleStorage
+class ScheduleStorage implements StorageInterface
 {
     public function __construct(
         private DatabaseInterface $database
@@ -16,11 +16,11 @@ class ScheduleStorage
 
     public function getById(int $id): array
     {
-        return $this->db->query('SELECT * FROM schedules WHERE id=:id', ["id" => $id]);
+        return $this->database->query('SELECT * FROM schedules WHERE id=:id', ["id" => $id]);
     }
 
     public function getByIds(array $ids): array
     {
-        return $this->db->query('SELECT * FROM schedules WHERE id in (:ids)', $ids);
+        return $this->database->query('SELECT * FROM schedules WHERE id in (:ids)', $ids);
     }
 }

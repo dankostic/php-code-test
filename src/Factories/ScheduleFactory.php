@@ -1,8 +1,10 @@
 <?php
 
-namespace Tymeshift\PhpTest\Domains\Schedule;
+namespace Tymeshift\PhpTest\Factories;
 
-use Cassandra\Date;
+use Tymeshift\PhpTest\Domains\Schedule\ScheduleCollection;
+use Tymeshift\PhpTest\Domains\Schedule\ScheduleEntity;
+use Tymeshift\PhpTest\Exceptions\InvalidCollectionDataProvidedException;
 use Tymeshift\PhpTest\Interfaces\CollectionInterface;
 use Tymeshift\PhpTest\Interfaces\EntityInterface;
 use Tymeshift\PhpTest\Interfaces\FactoryInterface;
@@ -29,5 +31,13 @@ class ScheduleFactory implements FactoryInterface
         }
 
         return $entity;
+    }
+
+    /**
+     * @throws InvalidCollectionDataProvidedException
+     */
+    public function createCollection(array $data):CollectionInterface
+    {
+        return (new ScheduleCollection())->createFromArray($data, $this);
     }
 }

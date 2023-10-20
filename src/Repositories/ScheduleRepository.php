@@ -1,13 +1,15 @@
 <?php
 
-namespace Tymeshift\PhpTest\Domains\Schedule;
+namespace Tymeshift\PhpTest\Repositories;
 
 use Tymeshift\PhpTest\Domains\Schedule\ScheduleStorage;
 use Tymeshift\PhpTest\Exceptions\StorageDataMissingException;
+use Tymeshift\PhpTest\Interfaces\CollectionInterface;
 use Tymeshift\PhpTest\Interfaces\EntityInterface;
 use Tymeshift\PhpTest\Interfaces\FactoryInterface;
+use Tymeshift\PhpTest\Interfaces\RepositoryInterface;
 
-class ScheduleRepository
+class ScheduleRepository implements RepositoryInterface
 {
     public function __construct(
         private ScheduleStorage $storage,
@@ -27,5 +29,10 @@ class ScheduleRepository
         }
 
         return $this->factory->createEntity($data);
+    }
+
+    public function getByIds(array $ids): CollectionInterface
+    {
+        // TODO: Implement getByIds() method.
     }
 }

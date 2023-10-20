@@ -5,6 +5,7 @@ namespace Tymeshift\PhpTest\Domains\Schedule;
 
 use DateTime;
 use Tymeshift\PhpTest\Interfaces\EntityInterface;
+use Tymeshift\PhpTest\Interfaces\ScheduleItemInterface;
 
 class ScheduleEntity implements EntityInterface
 {

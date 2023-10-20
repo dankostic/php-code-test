@@ -1,8 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Tymeshift\PhpTest\Domains\Task;
+namespace Tymeshift\PhpTest\Factories;
 
+use Tymeshift\PhpTest\Domains\Task\TaskCollection;
+use Tymeshift\PhpTest\Domains\Task\TaskEntity;
 use Tymeshift\PhpTest\Exceptions\InvalidCollectionDataProvidedException;
 use Tymeshift\PhpTest\Interfaces\CollectionInterface;
 use Tymeshift\PhpTest\Interfaces\EntityInterface;

@@ -9,10 +9,10 @@ use Mockery\MockInterface;
 use Tymeshift\PhpTest\Components\HttpClientInterface;
 use Tymeshift\PhpTest\Domains\Task\TaskCollection;
 use Tymeshift\PhpTest\Domains\Task\TaskEntity;
-use Tymeshift\PhpTest\Domains\Task\TaskFactory;
-use Tymeshift\PhpTest\Domains\Task\TaskRepository;
-use Tymeshift\PhpTest\Domains\Task\TaskProvider;
 use Tymeshift\PhpTest\Domains\Task\TaskStorage;
+use Tymeshift\PhpTest\Factories\TaskFactory;
+use Tymeshift\PhpTest\Providers\TaskProvider;
+use Tymeshift\PhpTest\Repositories\TaskRepository;
 
 class TaskCest
 {

@@ -1,13 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace Tymeshift\PhpTest\Domains\Task;
+namespace Tymeshift\PhpTest\Repositories;
 
+use Exception;
+use Tymeshift\PhpTest\Domains\Task\TaskCollection;
+use Tymeshift\PhpTest\Domains\Task\TaskStorage;
 use Tymeshift\PhpTest\Exceptions\InvalidCollectionDataProvidedException;
+use Tymeshift\PhpTest\Factories\TaskFactory;
 use Tymeshift\PhpTest\Interfaces\EntityCollection;
 use Tymeshift\PhpTest\Interfaces\EntityInterface;
 use Tymeshift\PhpTest\Interfaces\RepositoryInterface;
-use Exception;
 use Tymeshift\PhpTest\Traits\ArrayTrait;
 
 class TaskRepository implements RepositoryInterface

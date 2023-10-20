@@ -4,10 +4,10 @@ namespace Tests;
 
 use Codeception\Example;
 use Mockery\MockInterface;
-use Tymeshift\PhpTest\Domains\Schedule\ScheduleRepository;
-use Tymeshift\PhpTest\Domains\Schedule\ScheduleFactory;
 use Tymeshift\PhpTest\Domains\Schedule\ScheduleStorage;
 use Tymeshift\PhpTest\Exceptions\StorageDataMissingException;
+use Tymeshift\PhpTest\Factories\ScheduleFactory;
+use Tymeshift\PhpTest\Repositories\ScheduleRepository;
 
 class ScheduleCest
 {

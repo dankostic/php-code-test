@@ -1,6 +1,6 @@
 <?php
 
-namespace Tymeshift\PhpTest\Domains\Task;
+namespace Tymeshift\PhpTest\Providers;
 
 class TaskProvider
 {
