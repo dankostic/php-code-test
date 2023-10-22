@@ -32,7 +32,7 @@ class ScheduleEntity implements EntityInterface
     /**
      * @var ScheduleItemInterface[]
      */
-    public array $items;
+    private array $items;
 
     /**
      * @return int
