@@ -6,13 +6,11 @@ class TaskProvider
 {
     public const GET = 'GET';
     private const API_URL = '/api/tasks/';
-
-    private const API_TASK = '/api/task/';
     private const SCHEDULE = 'schedule/';
 
     protected function getSingleTask(int $id): string
     {
-        return self::API_TASK . $id;
+        return self::API_URL . $id;
     }
 
     protected function getSingleTaskFromSchedule(int $id): string

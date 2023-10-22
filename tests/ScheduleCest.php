@@ -21,6 +21,7 @@ class ScheduleCest
      * @var ScheduleRepository
      */
     private $scheduleRepository;
+
     
     public function _before()
     {
@@ -58,6 +59,20 @@ class ScheduleCest
      * @param \UnitTester $tester
      */
     public function testGetByIdFail(\UnitTester $tester)
+    {
+        $this->scheduleStorageMock
+            ->shouldReceive('getById')
+            ->with(4)
+            ->andReturn([]);
+        $tester->expectThrowable(StorageDataMissingException::class, function () {
+            $this->scheduleRepository->getById(4);
+        });
+    }
+
+    /**
+     * @param \UnitTester $tester
+     */
+    public function testItems(\UnitTester $tester)
     {
         $this->scheduleStorageMock
             ->shouldReceive('getById')

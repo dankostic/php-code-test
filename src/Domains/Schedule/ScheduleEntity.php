@@ -32,7 +32,7 @@ class ScheduleEntity implements EntityInterface
     /**
      * @var ScheduleItemInterface[]
      */
-    private array $items;
+    public array $items;
 
     /**
      * @return int
@@ -106,6 +106,25 @@ class ScheduleEntity implements EntityInterface
     public function setEndTime(DateTime $endTime): self
     {
         $this->endTime = $endTime;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getItems(): array
+    {
+        return $this->items;
+    }
+
+    /**
+     * @param array $items
+     * @return $this
+     */
+    public function setItems(array $items): self
+    {
+        $this->items = $items;
 
         return $this;
     }

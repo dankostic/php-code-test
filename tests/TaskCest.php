@@ -22,7 +22,7 @@ class TaskCest
     private $taskRepository;
 
     /**
-     * @var MockInterface
+     * @var MockInterface|HttpClientInterface
      */
     private $httpClientMock;
 
@@ -76,13 +76,13 @@ class TaskCest
     }
 
     /**
-     * @dataProvider tasksDataProvider
+     * @dataProvider singleTaskDataProvider
      */
     public function testGetSingleTask(Example $example, \UnitTester $tester): void
     {
         $this->httpClientMock
             ->shouldReceive('request')
-            ->with(TaskProvider::GET, '/api/task/123')
+            ->with(TaskProvider::GET, '/api/tasks/123')
             ->andReturn([...$example]);
 
         $tasks = $this->taskRepository->getById(123);
@@ -96,6 +96,15 @@ class TaskCest
                 ["id" => 123, "schedule_id" => 1, "start_time" => 0, "duration" => 3600],
                 ["id" => 431, "schedule_id" => 1, "start_time" => 3600, "duration" => 650],
                 ["id" => 332, "schedule_id" => 1, "start_time" => 5600, "duration" => 3600],
+            ]
+        ];
+    }
+
+    public function singleTaskDataProvider(): array
+    {
+        return [
+            [
+                ["id" => 123, "schedule_id" => 1, "start_time" => 0, "duration" => 3600],
             ]
         ];
     }
