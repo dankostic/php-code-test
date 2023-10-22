@@ -38,8 +38,6 @@ class ScheduleService
             $addItems[] = $this->scheduleItemFactory->createEntity($task);
         }
 
-        $schedule->setItems($addItems);
-
-        return $schedule;
+        return $schedule->setItems($addItems);
     }
 }
